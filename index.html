@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo - SPA</title>
+  <title>Catálogo de Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body { background: #f8f9fa; }
-    .product-img { height:200px; object-fit:cover; }
-    .whatsapp-float { position:fixed; right:20px; bottom:20px; z-index:1050; }
-  </style>
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./components/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
   <!-- Header -->
   <header class="bg-primary text-white py-3">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="h4 mb-0">Catálogo SPA</h1>
+      <h1 class="h4 mb-0">Catálogo de productos</h1>
       <nav>
         <div class="btn-group" role="group" aria-label="categorías">
           <button class="btn btn-outline-light btn-sm" data-filter="all">Todos</button>
@@ -29,16 +27,16 @@
   </header>
 
   <!-- Main -->
-  <main class="container py-5">
-    <p class="lead">Explora nuestro catálogo. Haz clic en una categoría para filtrar.</p>
+  <main class="container py-5 ">
+    <p class="lead d-flex justify-content-center">No dude en contactarnos.</p>
 
     <div class="row g-4" id="products">
-      <!-- Alimento -->
+      <!-- card-Alimento -->
       <div class="col-12 col-md-4" data-category="alimentos">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" class="card-img-top product-img" alt="Pan artesanal">
+          <img src="./img/alimento_01.jfif" class="card-img-top product-img" alt="Pan artesanal">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Pan Artesanal</h5>
+            <h5 class="card-title text-center">Pan Artesanal</h5>
             <p class="card-text text-muted small">Hecho con masa madre y horneado al momento.</p>
             <div class="mt-auto d-flex justify-content-between align-items-center">
               <strong class="text-success">$3.50</strong>
@@ -48,12 +46,12 @@
         </div>
       </div>
 
-      <!-- Electrodoméstico -->
+      <!-- card- Electrodoméstico -->
       <div class="col-12 col-md-4" data-category="electrodomesticos">
-        <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1586201375698-27113f1446b8?auto=format&fit=crop&w=1200&q=80" class="card-img-top product-img" alt="Licuadora">
+        <div class="card h-100 shadow-sm ">
+          <img src="./img/licudora_02.jpg"  alt="Licuadora"  style="height:200px" width="150px" class="mx-auto d-block" >
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Licuadora TurboX</h5>
+            <h5 class="card-title text-center">Licuadora TurboX</h5>
             <p class="card-text text-muted small">Vaso de vidrio, 1200W, 5 velocidades.</p>
             <div class="mt-auto d-flex justify-content-between align-items-center">
               <strong class="text-success">$79.99</strong>
@@ -66,9 +64,9 @@
       <!-- Juguete -->
       <div class="col-12 col-md-4" data-category="juguetes">
         <div class="card h-100 shadow-sm">
-          <img src="https://images.unsplash.com/photo-1542293787938-c9e299b8800d?auto=format&fit=crop&w=1200&q=80" class="card-img-top product-img" alt="Camión de juguete">
+          <img src="./img/camion_03.jpg" class="card-img-top product-img" alt="Camión de juguete">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Camión de Juguete</h5>
+            <h5 class="card-title text-center">Camión de Juguete</h5>
             <p class="card-text text-muted small">Plástico resistente, ruedas giratorias.</p>
             <div class="mt-auto d-flex justify-content-between align-items-center">
               <strong class="text-success">$12.00</strong>
@@ -81,8 +79,8 @@
     </div>
 
     <!-- Botón de contacto WhatsApp dentro del main -->
-    <div class="mt-4">
-      <a href="https://wa.me/TU_NUMERO" class="btn btn-success btn-lg">📲 Contactar por WhatsApp</a>
+    <div class="mt-4 d-flex justify-content-center">
+      <a href="https://wa.me/TU_NUMERO" class="btn btn-success btn-lg"> <img src="./img/whatsapp_04.png" alt="WhatsApp" style="width:24px; height:24px;">WhatsApp</a>
     </div>
   </main>
 
@@ -90,36 +88,5 @@
   <footer class="bg-light text-center py-3 mt-auto border-top">
     <div class="container small text-muted">&copy; Alejandro Camps Rodriguez</div>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Filtrado simple por categoría
-    const buttons = document.querySelectorAll('[data-filter]');
-    const cards = document.querySelectorAll('#products > div[data-category]');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
 </body>
 </html>
